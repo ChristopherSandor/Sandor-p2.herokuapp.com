@@ -70,7 +70,10 @@ body {
 
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot90 {}
+.rot90 {
+	transform: scale(1) rotate(90deg);
+	transition: all 1s ease;
+}
 
 /*Add CSS styles to rotate the element 180deg
 Make it animate nicely. You'll need CSS3 for this*/
@@ -78,4 +81,13 @@ Make it animate nicely. You'll need CSS3 for this*/
 
 /*Add CSS styles to rotate the element 270deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot270 {}
+.rot270 {
+	transform: scale(1) rotate(270deg);
+	transition: all 1s ease;
+}
+
+.centerHorz{
+    margin-left: 50%;
+	margin-top: 50%;
+	margin-right: 50%;
+}

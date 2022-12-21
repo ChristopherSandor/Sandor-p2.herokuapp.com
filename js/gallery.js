@@ -115,3 +115,21 @@ function iterateThrough()
 		mImages[currentIndex].date = mJson.images[currentIndex].date;
 	}
 }
+
+// This function checks the rotate/position of the class: moreIndicator
+
+function rotatePositionCheck(){
+
+	let htmlObject = document.querySelector(".moreIndicator");
+
+	if(htmlObject.classList.contains("rot90") == true){
+		htmlObject.classList.remove("rot90");
+		htmlObject.classList.add("rot270");
+		console.log("1LAUNCH")
+	}
+	else{
+		htmlObject.classList.remove("rot270");
+		htmlObject.classList.add("rot90");
+		console.log("2LAUNCH")
+	}
+}
