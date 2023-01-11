@@ -22,6 +22,8 @@ body {
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
 }
 
 .moreIndicator {
@@ -30,12 +32,14 @@ body {
 	position: absolute;
 	z-index: 3;
 	opacity: .8;
-	top: 0px;
+	bottom: 0px;
 }
 
 .thumbnail {
 	position: relative;
 	box-shadow: 1px 3px 20px 0px;
+	width: 518px;
+	height: 389px;
 }
 
 
@@ -77,7 +81,9 @@ Make it animate nicely. You'll need CSS3 for this*/
 
 /*Add CSS styles to rotate the element 180deg
 Make it animate nicely. You'll need CSS3 for this*/
-.rot180 {}
+.rot180 {
+	transform: rotate(180deg);
+}
 
 /*Add CSS styles to rotate the element 270deg
 Make it animate nicely. You'll need CSS3 for this*/
@@ -90,4 +96,21 @@ Make it animate nicely. You'll need CSS3 for this*/
     margin-left: 50%;
 	margin-top: 50%;
 	margin-right: 50%;
+}
+/* Left and Right Arrows Styles */
+#prevPhoto{
+	opacity: 100%;
+	transition: ease-in-out;
+}
+#prevPhoto:hover{
+	opacity: 80%;
+}
+
+#nextPhoto{
+	opacity: 100%;
+	float: right;
+	transition: ease-in-out;
+}
+#nextPhoto:hover{
+	opacity: 80%;
 }

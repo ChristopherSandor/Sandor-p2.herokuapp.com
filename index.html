@@ -14,11 +14,11 @@
     <div id="slideShow">
       <div class="photoHolder">
         <img class="thumbnail" id="photo" src="img/places/welcome.png" alt="Gallery Image"/>
+        <img class="moreIndicator rot90 centerHorz" src="img/more.png" alt="More Content" onclick="rotatePositionCheck(); reveil()"/>
       </div>
-      <img class="moreIndicator rot90 centerHorz" src="img/more.png" alt="More Content" onclick="rotatePositionCheck()"/>
       <div id="nav">
-        <img id="prevPhoto" class='rot180' src="img/arrow.png" alt="Previous Photo"/>
-        <img id="nextPhoto" src="img/arrow.png" alt="Next Photo"/>
+        <img id="prevPhoto" class="rot180" src="img/arrow.png" alt="Previous Photo"/>
+        <img id="nextPhoto" src="img/arrow.png"  alt="Next Photo"/>
       </div>
       <div class="details">
         <p class="location">Location: </p>
@@ -28,5 +28,15 @@
 
     </div>
   </div>
+
+  <script>
+    $("#prevPhoto").click(function() {
+      mCurrentIndex-=2;
+      swapPhoto();
+    });
+    $("#nextPhoto").click(function() {
+      swapPhoto();
+    });
+  </script>
 </body>
 </html>

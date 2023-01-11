@@ -33,22 +33,25 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
+
+	if(mCurrentIndex >= mImages.length){
+		mCurrentIndex = 0;
+	}
+	else if(mCurrentIndex < 0){
+		mCurrentIndex = (mImages.length - 1);
+	}
+
+
 	//Add code here to access the #slideShow element.
 	const imageHTML = document.getElementById("photo");
-
 	//Access the img element and replace its source
 	imageHTML.src = mImages[mCurrentIndex].img;
 
 	//with a new image from your images array which is loaded 
-	//from the JSON string
-
-	if(mCurrentIndex >= (mImages.length - 1)){
-		mCurrentIndex = 0;
-	}
-	else{
-		mCurrentIndex++;
-	}
+	mLastFrameTime = 0;
+	mCurrentIndex += 1;
 }
+
 
 // Counter for the mImages array
 var mCurrentIndex = 0;
@@ -125,11 +128,20 @@ function rotatePositionCheck(){
 	if(htmlObject.classList.contains("rot90") == true){
 		htmlObject.classList.remove("rot90");
 		htmlObject.classList.add("rot270");
+
 		console.log("1LAUNCH")
 	}
 	else{
 		htmlObject.classList.remove("rot270");
 		htmlObject.classList.add("rot90");
+
 		console.log("2LAUNCH")
 	}
 }
+
+// This function reveils and hids the info tab below the image
+function reveil(){
+	$('.details').fadeToggle();
+}
+
+// These functions go to the next photo or the previous photo and loop back around.
