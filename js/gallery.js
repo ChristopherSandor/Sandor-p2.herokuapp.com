@@ -58,7 +58,7 @@ var mCurrentIndex = 0;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'images.json';
+var mUrl;
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
@@ -72,7 +72,9 @@ mRequest.onreadystatechange = function() {
 			iterateThrough();
     }
 };
+checkJSON();
 mRequest.open("GET", mUrl, true);
+console.log(mRequest.open("GET", mUrl, true));
 mRequest.send();
 
 // Array holding GalleryImage objects (see below).
@@ -88,10 +90,12 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	
+
+	// Call the Check Function For JSON Files
+	checkJSON();
+
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
-	
 });
 
 window.addEventListener('load', function() {
@@ -144,4 +148,33 @@ function reveil(){
 	$('.details').fadeToggle();
 }
 
-// These functions go to the next photo or the previous photo and loop back around.
+// Check the URL for different JSON File
+function checkJSON(){
+
+	// var httpLocation = location.href;
+	// if(httpLocation == "http://localhost/Sandor-p2/index.html?json=images-short.json"){
+	// 	mUrl = "images-short.json";
+	// 	console.log("images-short.json launched");
+	// 	console.log(mUrl);
+	// }
+	// else{
+	// 	mUrl = 'images.json';
+	// 	console.log("images.json launched");
+	// 	console.log(mUrl);
+	// }
+
+
+	const urlParams = new URLSearchParams(window.location.search);
+
+	console.log(urlParams);
+	for (const [key, value] of urlParams) {
+	console.log(`${key}:${value}`);
+	mUrl = value;
+	}
+	
+	if(mUrl == undefined){
+	mUrl = 'images.json';
+	}
+	console.log(mUrl);
+
+}
